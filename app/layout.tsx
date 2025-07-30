@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://portfolio-saidul-alom.netlify.app'),
   title: 'Saidul Alom - Full Stack Developer',
   description: 'Full Stack Developer | AI/ML Enthusiast | B.Tech CSE 2025. Passionate about turning ideas into web solutions.',
   keywords: 'Full Stack Developer, AI/ML, React, Next.js, TypeScript, Portfolio',

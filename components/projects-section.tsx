@@ -143,7 +143,6 @@ export default function ProjectsSection() {
                 viewport={{ once: true }}
                 onClick={() => {
                   setSelectedCategory(category.id);
-                  setCurrentSlide(0);
                 }}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   selectedCategory === category.id
