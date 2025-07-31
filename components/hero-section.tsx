@@ -101,6 +101,7 @@ export default function HeroSection() {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white px-8 py-6 text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                onClick={() => window.open('/asstes/Saidul Alom Resume.pdf', '_blank')}
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
