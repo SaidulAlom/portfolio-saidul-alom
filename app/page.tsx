@@ -1,6 +1,7 @@
 "use client";
 
 import { Toaster } from 'sonner';
+import dynamic from 'next/dynamic';
 import Navbar from '@/components/navbar';
 import HeroSection from '@/components/hero-section';
 import AboutSection from '@/components/about-section';
@@ -13,11 +14,14 @@ import BlogSection from '@/components/blog-section';
 import CertificationsSection from '@/components/certifications-section';
 import Footer from '@/components/footer';
 
+const MetricsSection = dynamic(() => import('@/components/metrics-section'), { ssr: false });
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <Navbar />
       <HeroSection />
+      <MetricsSection />
       <AboutSection />
       <ProjectsSection />
       <SkillsSection />

@@ -143,7 +143,7 @@ const projects = [
 
 export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [expandedProject, setExpandedProject] = useState(null);
+  const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   const filteredProjects = selectedCategory === 'all' 
     ? projects 
