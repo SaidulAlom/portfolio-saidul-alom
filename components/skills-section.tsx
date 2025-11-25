@@ -102,7 +102,7 @@ export default function SkillsSection() {
               transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <Card className="h-full bg-white/70 dark:bg-gray-800/70 backdrop-blur-lg border border-white/20 dark:border-gray-700/30 shadow-lg hover:shadow-xl hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-300 group hover:-translate-y-1">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-3 mb-6">
                     <div className={`p-3 rounded-xl bg-gradient-to-r ${category.color} text-white shadow-lg`}>
@@ -131,15 +131,26 @@ export default function SkillsSection() {
                             {skill.level}%
                           </Badge>
                         </div>
-                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden shadow-inner group-hover/skill:h-3 transition-all duration-300">
                           <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            transition={{ delay: (categoryIndex * 0.1) + (skillIndex * 0.05) + 0.2, duration: 1, ease: "easeOut" }}
+                            initial={{ width: 0, opacity: 0.8 }}
+                            whileInView={{ width: `${skill.level}%`, opacity: 1 }}
+                            transition={{ 
+                              delay: (categoryIndex * 0.1) + (skillIndex * 0.05) + 0.2, 
+                              duration: 1.2, 
+                              ease: [0.25, 0.46, 0.45, 0.94]
+                            }}
                             viewport={{ once: true }}
-                            className={`h-full bg-gradient-to-r ${category.color} rounded-full relative`}
+                            className={`h-full bg-gradient-to-r ${category.color} rounded-full relative shadow-sm group-hover/skill:shadow-md transition-shadow duration-300`}
+                            whileHover={{ scale: 1.02 }}
                           >
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
+                            <motion.div 
+                              className="absolute right-0 top-0 h-full w-1 bg-white/50 rounded-full"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: [0, 1, 0] }}
+                              transition={{ duration: 2, repeat: Infinity, delay: (categoryIndex * 0.1) + (skillIndex * 0.05) + 1.5 }}
+                            />
                           </motion.div>
                         </div>
                       </motion.div>

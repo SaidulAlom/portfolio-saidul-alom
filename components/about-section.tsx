@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { GraduationCap, Code, Trophy, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
+import GitHubActivity from '@/components/github-activity';
 
 const timelineItems = [
   {
@@ -189,6 +190,8 @@ export default function AboutSection() {
             ))}
           </motion.div>
         </div>
+        
+        <GitHubActivity />
       </div>
     </section>
   );

@@ -44,6 +44,59 @@ export default function HeroSection() {
           }}
           className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"
         />
+        
+        {/* Floating Particles */}
+        {[...Array(25)].map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              y: [0, -40 - (i % 3) * 10, 0],
+              x: [0, Math.sin(i) * 30, 0],
+              opacity: [0.1, 0.4, 0.1],
+              scale: [0.5, 1, 0.5],
+            }}
+            transition={{
+              duration: 5 + (i % 4) * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.2,
+            }}
+            className={`absolute rounded-full ${
+              i % 5 === 0 ? 'w-1 h-1 bg-indigo-300/30' :
+              i % 5 === 1 ? 'w-1.5 h-1.5 bg-purple-300/25' :
+              i % 5 === 2 ? 'w-2 h-2 bg-pink-300/20' :
+              i % 5 === 3 ? 'w-0.5 h-0.5 bg-blue-300/35' :
+              'w-1 h-1 bg-cyan-300/30'
+            }`}
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+        
+        {/* Additional floating elements */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`ring-${i}`}
+            animate={{
+              rotate: [0, 360],
+              scale: [0.8, 1.2, 0.8],
+              opacity: [0.1, 0.3, 0.1],
+            }}
+            transition={{
+              duration: 10 + i * 2,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 1.5,
+            }}
+            className="absolute w-4 h-4 border border-indigo-200/20 rounded-full"
+            style={{
+              left: `${15 + (i * 12)}%`,
+              top: `${25 + (i * 8)}%`,
+            }}
+          />
+        ))}
       </div>
 
       <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
@@ -89,7 +142,32 @@ export default function HeroSection() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 max-w-3xl lg:max-w-none mx-auto leading-relaxed"
             >
-              Turning Ideas Into Web Solutions
+              Crafting modern, responsive websites and web applications with cutting-edge technologies. From concept to deployment, I transform your vision into powerful digital experiences that drive results.
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+              className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-2xl border border-green-200 dark:border-green-800 max-w-3xl lg:max-w-none mx-auto"
+            >
+              <div className="text-center lg:text-left">
+                <p className="text-xl sm:text-2xl font-bold text-green-700 dark:text-green-300 mb-4">
+                  ✅ Hire me — One-Page Website for ₹3,999 (72hr delivery)
+                </p>
+                <motion.div
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button
+                    size="lg"
+                    className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                    onClick={() => window.open('https://wa.me/918486028737?text=Hi%20Saidul,%20I%20want%20to%20hire%20you%20for%20a%20one-page%20website', '_blank')}
+                  >
+                    ➡️ Book on WhatsApp
+                  </Button>
+                </motion.div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -98,23 +176,33 @@ export default function HeroSection() {
               transition={{ delay: 0.8, duration: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-8"
             >
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white px-8 py-6 text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-                onClick={() => window.open('/asstes/Saidul Alom Resume.pdf', '_blank')}
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Download className="mr-2 h-5 w-5" />
-                Download Resume
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-8 py-6 text-lg rounded-2xl border-2 hover:bg-indigo-50 dark:hover:bg-indigo-950 transition-all duration-300"
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white px-8 py-6 text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => window.open('/asstes/Saidul Alom Resume.pdf', '_blank')}
+                >
+                  <Download className="mr-2 h-5 w-5" />
+                  Download Resume
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Mail className="mr-2 h-5 w-5" />
-                Contact Me
-              </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="px-8 py-6 text-lg rounded-2xl border-2 hover:bg-indigo-50 dark:hover:bg-indigo-950 transition-all duration-300"
+                >
+                  <Mail className="mr-2 h-5 w-5" />
+                  Contact Me
+                </Button>
+              </motion.div>
             </motion.div>
           </motion.div>
 

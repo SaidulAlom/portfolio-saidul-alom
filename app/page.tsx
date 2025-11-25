@@ -8,6 +8,9 @@ import ProjectsSection from '@/components/projects-section';
 import SkillsSection from '@/components/skills-section';
 import ExperienceSection from '@/components/experience-section';
 import ContactSection from '@/components/contact-section';
+import TestimonialsSection from '@/components/testimonials-section';
+import BlogSection from '@/components/blog-section';
+import CertificationsSection from '@/components/certifications-section';
 import Footer from '@/components/footer';
 
 export default function Home() {
@@ -19,6 +22,9 @@ export default function Home() {
       <ProjectsSection />
       <SkillsSection />
       <ExperienceSection />
+      <TestimonialsSection />
+      <BlogSection />
+      {/* <CertificationsSection /> */}
       <ContactSection />
       <Footer />
       <Toaster position="top-right" richColors />
